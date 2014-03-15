@@ -10,12 +10,10 @@ class EmbeddedController < ApplicationController
       :message => 'Please sign this NDA and then we can discuss more. Let me know if you have any questions.',
       :signers => [{
           :email_address => params[:email],
-          :name => params[:name],
-          :order => 0,
+          :name => params[:name]
         }
       ],
-      :cc_email_addresses => ['lawyer@hellosign.com', 'lawyer@example.com'],
-      :files => [File.join(Rails.public_path, 'test.pdf'), File.join(Rails.public_path, 'test1.pdf')]
+      :file_urls => ['http://intense-basin-1222.herokuapp.com/test.pdf', 'http://intense-basin-1222.herokuapp.com/test1.pdf']
     )
     signature_id = request.signatures[0][:signature_id]
     embedded = HelloSign.get_embedded_sign_url :signature_id => signature_id
