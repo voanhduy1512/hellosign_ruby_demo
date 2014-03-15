@@ -14,7 +14,7 @@ class EmbeddedController < ApplicationController
             :name => params[:name]
           }
         ],
-        :file_urls => ['http://intense-basin-1222.herokuapp.com/test.pdf']
+        :file_urls => ['https://www.dropbox.com/s/3j091o4n4sfx6q9/test.pdf']
       )
 
       signature_id = request.signatures[0]["signature_id"]
