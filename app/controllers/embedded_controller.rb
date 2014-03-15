@@ -31,7 +31,7 @@ class EmbeddedController < ApplicationController
   end
 
   def create_requesting
-    begin
+
       data = {
         :test_mode => 1,
         :signers => [{
@@ -39,7 +39,6 @@ class EmbeddedController < ApplicationController
             :name => params[:signer_name]
           }
         ],
-        :file_urls => ['https://www.dropbox.com/s/3j091o4n4sfx6q9/test.pdf']
       }
 
       if params[:title]
@@ -55,16 +54,14 @@ class EmbeddedController < ApplicationController
       end
 
       data[:files] = params[:files]
-
+      binding.pry
       request = HelloSign.create_embedded_signature_request data
       signature_id = request.signatures[0]["signature_id"]
 
       embedded = HelloSign.get_embedded_sign_url :signature_id => signature_id
       @sign_url = embedded.sign_url
       render 'requesting'
-    rescue => e
-      render :text => e
-    end
+
   end
 
   def template_requesting
