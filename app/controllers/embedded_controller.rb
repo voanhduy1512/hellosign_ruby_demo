@@ -3,15 +3,14 @@ class EmbeddedController < ApplicationController
   end
 
   def create_signning
-    binding.pry
     request = HelloSign.create_embedded_signature_request(
       :test_mode => 1,
       :title => 'NDA with Acme Co.',
       :subject => 'The NDA we talked about',
       :message => 'Please sign this NDA and then we can discuss more. Let me know if you have any questions.',
       :signers => [{
-          :email_address => 'voanhduy1512@live.com',
-          :name => 'Jack',
+          :email_address => params[:email],
+          :name => params[:name],
           :order => 0,
         }
       ],
