@@ -6,6 +6,7 @@ HelloSignDemo::Application.routes.draw do
   get "home/index"
 
   post 'embedded/signning', to: 'embedded#create_signning'
+  post 'embedded/requesting', to: 'embedded#create_requesting'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
