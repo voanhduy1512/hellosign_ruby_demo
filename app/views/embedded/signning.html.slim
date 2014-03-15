@@ -28,7 +28,7 @@ h1 Embedded Signing Demo
     h2 Try it out
     p Please sign our NDA.
 
-    form.form-horizontal action='embedded-signning' method='POST' name='embedded_signing'
+    = form_tag('signning', :method => :POST, :html => {:class => 'form-horizontal'})
       input type='text' name='name' class='form-control' placeholder='Your name'
       input type='email' name='email' class='form-control' placeholder='Your email'
       br/

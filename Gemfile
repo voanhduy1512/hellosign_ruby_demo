@@ -30,6 +30,7 @@ gem 'hello_sign', :git => 'git://github.com/voanhduy1512/hello_sign.git'
 
 gem "slim-rails"
 group :development do
+  gem 'sqlite3'
   gem 'rails-pry'
 end
 group :doc do

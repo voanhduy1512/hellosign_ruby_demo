@@ -1,10 +1,25 @@
 class EmbeddedController < ApplicationController
   def signning
-    @sign_url = "https://www.hellosign.com/editor/embeddedSign?signature_id=a4a9cf999e33ae75c052e48c91b32832&token=11dc0f144e3bb48601201176560c1e23"
   end
 
   def create_signning
-    @sign_url = "https://www.hellosign.com/editor/embeddedSign?signature_id=a4a9cf999e33ae75c052e48c91b32832&token=11dc0f144e3bb48601201176560c1e23"
+    request = HelloSign.create_embedded_signature_request(
+      :test_mode => 1,
+      :title => 'NDA with Acme Co.',
+      :subject => 'The NDA we talked about',
+      :message => 'Please sign this NDA and then we can discuss more. Let me know if you have any questions.',
+      :signers => [{
+          :email_address => 'voanhduy1512@live.com',
+          :name => 'Jack',
+          :order => 0,
+        }
+      ],
+      :cc_email_addresses => ['lawyer@hellosign.com', 'lawyer@example.com'],
+      :files => ['/test.pdf', '/test1.pdf']
+    )
+    signature_id = request.signatures[0].signature_id
+    embedded = HelloSign.get_embedded_sign_url :signature_id => signature_id
+    @sign_url = embedded.sign_url
     render 'signning'
   end
 
