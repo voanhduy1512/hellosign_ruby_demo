@@ -1,5 +1,6 @@
-PATH
-  remote: /Users/anhduyvo/Projects/hello_sign
+GIT
+  remote: git://github.com/voanhduy1512/hello_sign.git
+  revision: b1e743c650d7497b6fc852bc456f133baff5ef33
   specs:
     hello_sign (0.0.1)
       faraday
