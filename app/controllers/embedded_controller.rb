@@ -3,6 +3,7 @@ class EmbeddedController < ApplicationController
   end
 
   def create_signning
+    binding.pry
     request = HelloSign.create_embedded_signature_request(
       :test_mode => 1,
       :title => 'NDA with Acme Co.',
@@ -15,9 +16,9 @@ class EmbeddedController < ApplicationController
         }
       ],
       :cc_email_addresses => ['lawyer@hellosign.com', 'lawyer@example.com'],
-      :files => ['/test.pdf', '/test1.pdf']
+      :files => [File.join(Rails.public_path, 'test.pdf'), File.join(Rails.public_path, 'test1.pdf')]
     )
-    signature_id = request.signatures[0].signature_id
+    signature_id = request.signatures[0][:signature_id]
     embedded = HelloSign.get_embedded_sign_url :signature_id => signature_id
     @sign_url = embedded.sign_url
     render 'signning'

@@ -31,7 +31,7 @@ gem 'hello_sign', :git => 'git://github.com/voanhduy1512/hello_sign.git'
 gem "slim-rails"
 group :development do
   gem 'sqlite3'
-  gem 'rails-pry'
+  gem 'pry-rails'
 end
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
