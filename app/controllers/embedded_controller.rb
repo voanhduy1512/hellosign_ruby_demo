@@ -31,7 +31,6 @@ class EmbeddedController < ApplicationController
   end
 
   def create_requesting
-    binding.pry
     begin
       data = {
         :test_mode => 1,
