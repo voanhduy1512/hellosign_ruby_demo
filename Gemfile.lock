@@ -1,6 +1,5 @@
-GIT
-  remote: git://github.com/voanhduy1512/hello_sign.git
-  revision: 9691c97018c261841d94f6cee3ade8082c93b316
+PATH
+  remote: /Users/anhduyvo/Projects/hello_sign
   specs:
     hello_sign (0.0.1)
       faraday
@@ -109,7 +108,7 @@ GEM
       activesupport (>= 3.0, < 4.1)
       railties (>= 3.0, < 4.1)
       slim (~> 2.0)
-    slop (3.4.7)
+    slop (3.5.0)
     sprockets (2.11.0)
       hike (~> 1.2)
       multi_json (~> 1.0)
