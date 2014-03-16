@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/voanhduy1512/hello_sign.git
-  revision: 83b278dbe9c48d6072684fe1d336b1635d9ca998
+  revision: d31e0224534e3fd8bb1a6ee42d4aa8741653f4d5
   specs:
     hello_sign (0.0.1)
       faraday
