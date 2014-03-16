@@ -28,7 +28,7 @@ h1 Embedded Signing Demo
     h2 Try it out
     p Please sign our NDA.
 
-    = form_tag('signning', :method => :POST, :html => {:class => 'form-horizontal'})
+    = form_tag('oauth_demo', :method => :POST, :html => {:class => 'form-horizontal'})
       input type='text' name='name' class='form-control' placeholder='Your name'
       input type='email' name='email' class='form-control' placeholder='Your email'
       br/
@@ -39,10 +39,11 @@ h1 Embedded Signing Demo
   = render 'embedded_view'
 
 javascript:
+
   $("#startButton").click(function() {
       // Request an OAuth token from HelloSign
       var win = window.open(
-              "#{HelloSign.oauth_url('hellosign-ruby')},
+              "#{HelloSign.oauth_url('hellosign-ruby')}",
               "hellosign_oauth",
               "width=600,height=400");
 
