@@ -14,7 +14,7 @@ class EmbeddedController < ApplicationController
             :name => params[:name]
           }
         ],
-        :file_urls => ['https://www.dropbox.com/s/3j091o4n4sfx6q9/test.pdf']
+        :file_urls => PDF_FILE
       )
 
       signature_id = request.signatures[0]["signature_id"]
@@ -127,7 +127,7 @@ class EmbeddedController < ApplicationController
             :name => params[:name],
           }
         ],
-        :file_urls => ['https://www.dropbox.com/s/3j091o4n4sfx6q9/test.pdf']
+        :file_urls => PDF_FILE
       )
       flash[:notice] = "Sent Signature Request to #{params[:email]} successful"
       render 'oauth_demo'
