@@ -15,6 +15,7 @@ HelloSignDemo::Application.routes.draw do
   root 'home#index'
 
   post 'oath', to:'oauth#index'
+  get 'oath', to:'oauth#index'
   post 'callback', to: 'home#callback'
 
   # Example of regular route:

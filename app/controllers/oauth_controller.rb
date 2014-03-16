@@ -1,6 +1,6 @@
 class OauthController < ApplicationController
   def index
-\
-    render :text => params.inspect
+
+    render :text => HelloSign.get_oauth_token params[:state], params[:code]
   end
 end
