@@ -43,7 +43,7 @@ javascript:
   $("#startButton").click(function() {
       // Request an OAuth token from HelloSign
       var win = window.open(
-              "#{HelloSign.oauth_url('hellosign-ruby')}",
+              "#{raw HelloSign.oauth_url('hellosign-ruby')}",
               "hellosign_oauth",
               "width=600,height=400");
 
