@@ -108,8 +108,8 @@ class EmbeddedController < ApplicationController
 
   def create_oauth_demo
     begin
-      if cookie[:auth_token]
-        client = HelloSign::Client.new :auth_token => cookie[:auth_token]
+      if cookies[:auth_token]
+        client = HelloSign::Client.new :auth_token => cookies[:auth_token]
       else
         raise 'do not have auth token yet'
       end
