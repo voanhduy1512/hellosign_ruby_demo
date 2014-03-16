@@ -121,7 +121,8 @@ class EmbeddedController < ApplicationController
         ],
         :file_urls => ['https://www.dropbox.com/s/3j091o4n4sfx6q9/test.pdf']
       )
-      render 'oauth_demo', :notice => "Sent Signature Request to #{params[:email]} successful"
+      flash[:notice] = "Sent Signature Request to #{params[:email]} successful"
+      render 'oauth_demo'
     rescue => e
       render :text => e
     end
