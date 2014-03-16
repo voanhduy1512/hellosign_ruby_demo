@@ -105,4 +105,30 @@ class EmbeddedController < ApplicationController
 
   def oauth_demo
   end
+
+  def create_oauth_demo
+    begin
+      client = HelloSign::Client.new :auth_token => session[:auth_token]
+      request = HelloSign.create_embedded_signature_request(
+        :test_mode => 1,
+        :title => 'NDA with Acme Co.',
+        :subject => 'The NDA we talked about',
+        :message => 'Please sign this NDA and then we can discuss more. Let me know if you have any questions.',
+        :signers => [{
+            :email_address => params[:email],
+            :name => params[:name]
+          }
+        ],
+        :file_urls => ['https://www.dropbox.com/s/3j091o4n4sfx6q9/test.pdf']
+      )
+
+      signature_id = request.signatures[0]["signature_id"]
+
+      embedded = HelloSign.get_embedded_sign_url :signature_id => signature_id
+      @sign_url = embedded.sign_url
+      render 'oauth_demo'
+    rescue => e
+      render :text => e
+    end
+  end
 end

@@ -8,6 +8,7 @@ HelloSignDemo::Application.routes.draw do
   post 'embedded/signning', to: 'embedded#create_signning'
   post 'embedded/requesting', to: 'embedded#create_requesting'
   post 'embedded/template_requesting', to: 'embedded#create_template_requesting'
+  post 'embedded/oauth_demo', to: 'embedded#create_oauth_demo'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
