@@ -67,6 +67,40 @@ class EmbeddedController < ApplicationController
   end
 
   def template_requesting
+    @templates = HelloSign.get_reusable_forms(:page => 1)
+    @data = (@templates.map {|t| t.data }).to_json
+  end
+
+  def create_template_requesting
+    signers = []
+    params[:signers].each_with_index do |signer, index|
+      signer[1][:role] = signer[0]
+      signers << signer[1]
+    end
+    ccs = []
+    params[:ccs].each_with_index do |cc, index|
+      cc[1][:role] = cc[0]
+      ccs << cc[1]
+    end
+    begin
+      request = HelloSign.create_embedded_signature_request_with_reusable_form(
+        :test_mode => 1,
+        :reusable_form_id => params[:template],
+        :title => 'Purchase Order',
+        :subject => 'Purchase Order',
+        :message => 'Glad we could come to an agreement.',
+        :signers => signers,
+        :ccs => ccs,
+        :custom_fields => params[:custom_fields]
+      )
+      signature_id = request.signatures[0]["signature_id"]
+
+      embedded = HelloSign.get_embedded_sign_url :signature_id => signature_id
+      @sign_url = embedded.sign_url
+      render 'template_requesting'
+    rescue => e
+      render :text => e
+    end
   end
 
   def oauth_demo
