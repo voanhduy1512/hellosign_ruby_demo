@@ -26,7 +26,7 @@ gem 'jbuilder', '~> 1.2'
 
 gem "twitter-bootstrap-rails"
 
-gem 'hello_sign', :git => 'git://github.com/voanhduy1512/hello_sign.git'
+gem 'hellosign-ruby', :git => 'git://github.com/voanhduy1512/hellosign-ruby.git'
 
 gem "slim-rails"
 group :development do

@@ -1,8 +1,8 @@
 GIT
-  remote: git://github.com/voanhduy1512/hello_sign.git
-  revision: 881bd890756a5194f45ce39c5263dcf186c2b1a8
+  remote: git://github.com/voanhduy1512/hellosign-ruby.git
+  revision: 07f01c32f322b95a369d27a751202116c57e6df6
   specs:
-    hello_sign (0.0.1)
+    hellosign-ruby (0.0.1)
       faraday
       multi_json
 
@@ -145,7 +145,7 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
-  hello_sign!
+  hellosign-ruby!
   jbuilder (~> 1.2)
   jquery-rails
   pg
