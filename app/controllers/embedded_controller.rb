@@ -108,8 +108,11 @@ class EmbeddedController < ApplicationController
 
   def create_oauth_demo
     begin
-      client = HelloSign::Client.new :auth_token => session[:auth_token]
-
+      if session[:auth_token]
+        client = HelloSign::Client.new :auth_token => session[:auth_token]
+      else
+        raise 'do not have auth token yet'
+      end
       #make sure it not use config account
       client.email_address = nil
       client.password = nil
