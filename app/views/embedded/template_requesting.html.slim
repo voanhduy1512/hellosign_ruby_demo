@@ -55,27 +55,7 @@ h1 Embedded Request Demo
   p.intro Request signatures for documents directly from your website with HelloSign's embedded request capability. Follow the steps below to add this feature to your Java-based web application.
   br/
 
-  .part
-    h2 Before You Begin
-    blockquote
-      ol
-        li
-          p Obtain an API key.
-          p
-            = "Sign up for an API plan "
-            a href="https://www.hellosign.com/api/pricing" here
-            | . Adding embedded signing to your website requires a Silver or Gold API plan. However, you can test the functionality for free by creating signature requests in test mode.
-        li.margin-top-20
-          p Obtain a Client ID.
-          p
-            = "Sign up for a Client ID for your application "
-            a href="https://www.hellosign.com/oauth/createAppForm"  here.
-        li.margin-top-20
-          p Set the API key and Client ID environment variables
-          pre
-            | heroku config:set HELLOSIGN_API_KEY=&lt;api_key&gt;
-            br/
-            | heroku config:set HELLOSIGN_CLIENT_ID=&lt;client_id&gt;
+
   .part
     h2 Try it out
 
