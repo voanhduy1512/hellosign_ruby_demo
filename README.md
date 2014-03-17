@@ -111,8 +111,10 @@ request = HelloSign.create_embedded_signature_request(
       :name => params[:sender_name]
     }
   ],
-  :file_urls => ['http://example/test.pdf']
+  #We support ActionDispatch::Http::UploadedFile out of the box so you can pass params files to files option
+  :files => params[:files]
 )
+
 ```
 2.Create embedded for this signature request
 ```ruby
