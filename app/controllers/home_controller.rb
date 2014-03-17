@@ -4,6 +4,6 @@ class HomeController < ApplicationController
   end
 
   def callback
-    render :text => 'success'
+    render :text => 'Hello API Event Received'
   end
 end
